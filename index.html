@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Nikhil Kumar - Portfolio</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    color: #222;
+    scroll-behavior: smooth;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  a {
+    color: #0066ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover, a:focus {
+    color: #004bb5;
+  }
+  header {
+    background: url('https://images.pexels.com/photos/374074/pexels-photo-374074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=600&w=1200') center/cover no-repeat;
+    height: 320px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+  }
+  header::after {
+    content: "";
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.5);
+    z-index: 0;
+  }
+  header h1, header nav, header p.title {
+    position: relative;
+    z-index: 1;
+  }
+  header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  }
+  header p.title {
+    font-size: 1.25rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: #cde0ff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  }
+  header nav a {
+    margin: 0 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: white;
+  }
+  main {
+    max-width: 900px;
+    margin: 20px auto;
+    background: white;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    padding: 30px 20px 40px;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  section h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    color: #333;
+    border-bottom: 3px solid #0066ff;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  #about {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  #projects .project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 20px;
+  }
+  .project {
+    background: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+  }
+  .project:hover {
+    transform: translateY(-6px);
+  }
+  .project img {
+    width: 100%;
+    object-fit: cover;
+    height: 140px;
+  }
+  .project-content {
+    padding: 15px;
+    flex-grow: 1;
+  }
+  .project-content h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    color: #0066ff;
+  }
+  .project-content p {
+    color: #666;
+    font-size: 0.95rem;
+    flex-grow: 1;
+  }
+  #skills ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  #skills li {
+    background: #e1f0ff;
+    color: #0073e6;
+    padding: 8px 14px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 5px rgba(0, 115, 230, 0.25);
+    user-select: none;
+  }
+  footer {
+    text-align: center;
+    padding: 20px 10px;
+    color: #777;
+    font-size: 0.9rem;
+    background: #f0f4fa;
+    border-top: 1px solid #ddd;
+  }
+
+  /* Responsive for mobile landscape and vertical */
+  @media (max-width: 600px) {
+    header {
+      height: 280px;
+      padding: 0 10px;
+    }
+    header h1 {
+      font-size: 2.25rem;
+    }
+    nav a {
+      font-size: 1rem;
+      margin: 0 8px;
+    }
+    main {
+      margin: -60px 10px 30px;
+      padding: 25px 15px 35px;
+    }
+    section h2 {
+      font-size: 1.6rem;
+    }
+    #projects .project-list {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+    .project img {
+      height: 180px;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Nikhil Kumar</h1>
+  <p class="title">Aspiring Data Analyst</p>
+  <nav aria-label="Primary navigation">
+    <a href="#about" tabindex="1">About</a>
+    <a href="#experience" tabindex="2">Experience</a>
+    <a href="#projects" tabindex="3">Projects</a>
+    <a href="#skills" tabindex="4">Skills</a>
+    <a href="#education" tabindex="5">Education</a>
+  </nav>
+</header>
+<main>
+  <section id="about" tabindex="7" aria-label="About me section">
+    <h2>About Me</h2>
+    <p>Hello! I'm Nikhil Kumar, an aspiring Business Analytics professional skilled in SQL (MySQL), Python, Power BI, Tableau, Advanced Excel, and Streamlit. Passionate about data analysis, decision-making, and creating efficient applications with strong adaptability, communication, and problem-solving skills.</p>
+    <p>Connect with me:</p>
+    <p><a href="https://github.com/Nikhil3920" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://www.linkedin.com/in/nikhilkumar309/" target="_blank" rel="noopener noreferrer">LinkedIn</a> | <a href="mailto:nikhilsehajpal74@gmail.com">Email</a></p>
+    <p>Phone: +91-9779427377</p>
+  </section>
+
+  <section id="experience" tabindex="8" aria-label="Work experience section">
+    <h2>Work Experience</h2>
+    <article>
+      <h3>Due Diligence Analyst - NEOTAS India</h3>
+      <p><em>November 2024 - Present</em></p>
+      <ul>
+        <li>Conducted comprehensive research and analysis to gather and validate information for due diligence reports.</li>
+        <li>Classified and organized content for due diligence processes, ensuring accuracy and compliance with company standards.</li>
+        <li>Identified and assessed risk factors, providing detailed insights for informed decision-making.</li>
+        <li>Collaborated with cross-functional teams to ensure the seamless execution of due diligence projects.</li>
+        <li>Demonstrated strong skills in content classification, research methodologies, and attention to detail to meet client-specific requirements.</li>
+      </ul>
+    </article>
+    <article>
+      <h3>Business Analytics Intern - Miles Education, Bengaluru, India</h3>
+      <p><em>June - July, 2024</em></p>
+      <ul>
+        <li>Performed effective business analytics techniques to analyze complex datasets and deliver actionable insights.</li>
+        <li>Extracted insights from datasets using Power BI and Excel, reporting effectively to management.</li>
+        <li>Completed a project predicting selling price using a Random Forest Regressor on a Copper dataset using Python.</li>
+        <li>Developed an interactive Streamlit app integrating SQL for dynamic querying and designed the webpage with HTML including a custom login page.</li>
+        <li>Learned to make strategic decisions based on data analysis using multiple tools.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="projects" tabindex="9" aria-label="Projects portfolio section">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="project" tabindex="10" aria-label="Project: Copper Sales Price Predictor">
+        <img src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=200&amp;w=300" alt="Data Science project screenshot" />
+        <div class="project-content">
+          <h3>Copper Sales Price Predictor</h3>
+          <p>Machine learning project predicting selling prices using Random Forest Regressor with Python on Copper dataset.</p>
+        </div>
+      </div>
+      <div class="project" tabindex="11" aria-label="Project: Interactive Data Analytics Dashboard">
+        <img src="https://images.pexels.com/photos/3184655/pexels-photo-3184655.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=200&amp;w=300" alt="Streamlit dashboard screenshot" />
+        <div class="project-content">
+          <h3>Interactive Data Analytics Dashboard</h3>
+          <p>Developed a Streamlit based interactive webpage with SQL integration for dynamic data queries and visualization.</p>
+        </div>
+      </div>
+      <div class="project" tabindex="12" aria-label="Project: Power BI Dashboard">
+        <img src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=200&amp;w=300" alt="Power BI project screenshot" />
+        <div class="project-content">
+          <h3>Power BI Dashboard</h3>
+          <p>Created an insightful Power BI dashboard to visualize market trends and key business metrics for improved decision-making.</p>
+        </div>
+      </div>
+      <div class="project" tabindex="13" aria-label="Project: Understanding Data Analysis Using Excel and MySQL for Deep Learning">
+        <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=200&amp;w=300" alt="Data analysis project placeholder" />
+        <div class="project-content">
+          <h3>Understanding Data Analysis Using Excel and MySQL for Deep Learning</h3>
+          <p>A future project focused on leveraging Excel and MySQL to perform deep learning data analysis for valuable insights. Coming soon!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" tabindex="12" aria-label="Skills section">
+    <h2>Skills Summary</h2>
+    <ul>
+      <li>SQL (MySQL)</li>
+      <li>Python</li>
+      <li>Power BI</li>
+      <li>Tableau</li>
+      <li>Advanced Excel</li>
+      <li>Streamlit</li>
+      <li>Jira</li>
+      <li>Keka</li>
+      <li>MS Office</li>
+      <li>PowerPoint</li>
+      <li>Adaptability</li>
+      <li>Communication</li>
+      <li>Critical Thinking</li>
+      <li>Problem-Solving</li>
+    </ul>
+  </section>
+
+  <section id="education" tabindex="13" aria-label="Education section">
+    <h2>Education</h2>
+    <article>
+      <h3>Master of Business Administration (Business Analytics) - Lovely Professional University, Phagwara, Punjab</h3>
+      <p>CGPA: 8.32</p>
+    </article>
+    <article>
+      <h3>Bachelor of Business Administration - CT Institute of Management &amp; Technology, Jalandhar, Punjab</h3>
+      <p>CGPA: 7.49</p>
+    </article>
+    <article>
+      <h3>Senior School Certificate Examination - Army Public School, Ferozepur Cantt, Punjab</h3>
+      <p>Percentage: 79%</p>
+    </article>
+  </section>
+
+  <section id="certificates" tabindex="14" aria-label="Certificate courses section">
+    <h2>Certificate Courses</h2>
+    <ul>
+      <li>Career Essentials in Business Analysis by Microsoft (Sep 2024)</li>
+      <li>Python for Data Science from Cognitive Class powered by IBM (Feb 2024)</li>
+      <li>The Art of Prompt Engineering and Prompt Engineering for Everyone powered by IBM (Feb 2024)</li>
+      <li>A tool pack for data analysis: Advanced Excel, Power BI and Tableau from Lovely Professional University</li>
+    </ul>
+  </section>
+
+  <section id="achievements" tabindex="15" aria-label="Achievements section">
+    <h2>Achievements</h2>
+    <ul>
+      <li>Authored and submitted a research paper on the downturn in the automobile sector at ICTESM 2020, Singapore</li>
+      <li>Earned the National Cadet Corps ‘A’ Certificate</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 Nikhil Kumar. All rights reserved.
+</footer>
+</body>
+</html>
+
